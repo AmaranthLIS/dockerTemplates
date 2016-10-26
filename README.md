@@ -15,3 +15,12 @@ ${env.USER}
 export DOCKER_CERT_PATH=/Users/user/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.1.33:2376
+
+
+
+--------------------
+When you need build spring boot and docker for microservice:
+$ spring jar app.jar app.groovy
+$ rm -rf app/ && unzip -q app.jar -d app
+$ find ./app/lib/ | xargs touch -t 0000000000.00
+$ docker build .
